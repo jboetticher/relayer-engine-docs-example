@@ -1,14 +1,14 @@
 import * as relayerEngine from "relayer-engine";
 import {
-  DummyPlugin,
-  DummyPluginConfig,
-} from "../plugins/dummy_plugin/src/plugin";
+  SimpleGeneralMessagePlugin,
+  SimpleGeneralMessagePluginConfig,
+} from "../plugins/simplegeneralmessage_plugin/src/plugin";
 
 async function main() {
   // load plugin config
   const pluginConfig = (await relayerEngine.loadFileAndParseToObject(
-    `./plugins/dummy_plugin/config/${relayerEngine.EnvType.DEVNET.toLowerCase()}.json`,
-  )) as DummyPluginConfig;
+    `./plugins/simplegeneralmessage_plugin/config/${relayerEngine.EnvType.DEVNET.toLowerCase()}.json`,
+  )) as SimpleGeneralMessagePluginConfig;
 
   const mode =
     (process.env.RELAYER_ENGINE_MODE?.toUpperCase() as relayerEngine.Mode) ||
@@ -18,8 +18,8 @@ async function main() {
   await relayerEngine.run({
     configs: "./relayer-engine-config",
     plugins: {
-      [DummyPlugin.pluginName]: (engineConfig, logger) =>
-        new DummyPlugin(engineConfig, pluginConfig, logger),
+      [SimpleGeneralMessagePlugin.pluginName]: (engineConfig, logger) =>
+        new SimpleGeneralMessagePlugin(engineConfig, pluginConfig, logger),
     },
 
     mode,

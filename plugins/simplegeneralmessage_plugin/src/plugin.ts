@@ -17,7 +17,7 @@ import { ChainId, parseVaa, isEVMChain } from "@certusone/wormhole-sdk";
 import { ethers } from "ethers";
 import * as abi from "./abi.json";
 
-export interface DummyPluginConfig {
+export interface SimpleGeneralMessagePluginConfig {
   spyServiceFilters: { chainId: wh.ChainId; emitterAddress: string }[];
 }
 
@@ -28,16 +28,16 @@ interface WorkflowPayload {
   count: number;
 }
 
-export class DummyPlugin implements Plugin<WorkflowPayload> {
+export class SimpleGeneralMessagePlugin implements Plugin<WorkflowPayload> {
   // configuration fields used by engine
   readonly shouldSpy: boolean = true;
   readonly shouldRest: boolean = false;
   readonly maxRetries = 10;
   static readonly pluginName: string = "DummyPlugin";
-  readonly pluginName = DummyPlugin.pluginName;
+  readonly pluginName = SimpleGeneralMessagePlugin.pluginName;
 
   // config used by plugin
-  pluginConfig: DummyPluginConfig;
+  pluginConfig: SimpleGeneralMessagePluginConfig;
 
   /*====================== Initialization of the Plugin =======================*/
 
@@ -168,15 +168,3 @@ export class DummyPlugin implements Plugin<WorkflowPayload> {
   }
 }
 
-/*
-
-payloadId:      03
-amount:         0000000000000000000000000000000000000000000000000000000001312d00
-tokenAddress:   000000000000000000000000f1277d1ed8ad466beddf92ef448a132661956621
-tokenChain:     000a
-to:             0000000000000000000000000000000000000000000000000000000000000815
-toChain:        0010
-fromAddress:    000000000000000000000000b7e8c35609ca73277b2207d07b51c9ac5798b380
-payload:        000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000807b2022706172656e7473223a20312c2022696e746572696f72223a207b20225832223a205b207b202250617261636861696e223a20383838207d2c207b20224163636f756e744b65793230223a202230783335344231304434376538344130303662394537653636413232394431373445384646324130363322207d205d7d7d
-
-*/
