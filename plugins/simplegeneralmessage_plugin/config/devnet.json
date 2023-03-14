@@ -16,11 +16,11 @@
     },
     {
       "chainId": 10,
-      "emitterAddress": "0xCf11E10377cf4730F18A617146E7D2486F501e2A"
+      "emitterAddress": "0x1FD6D0beAF15052f6A6E48DBde8484A73A280A45"
     },
     {
       "chainId": 16,
-      "emitterAddress": "0x9C3F825FFC30d07aE2aD3D73200a71a3f2255759"
+      "emitterAddress": "0xA8ADd09e4fcF1b5edc588C54BEE137Cb35e61f5B"
     }
   ]
 }

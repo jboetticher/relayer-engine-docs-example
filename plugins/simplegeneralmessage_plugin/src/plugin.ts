@@ -25,7 +25,6 @@ export interface SimpleGeneralMessagePluginConfig {
 // This is what is returned by the consumeEvent and received by handleWorkflow
 interface WorkflowPayload {
   vaa: string; // base64
-  count: number;
 }
 
 export class SimpleGeneralMessagePlugin implements Plugin<WorkflowPayload> {
@@ -33,7 +32,7 @@ export class SimpleGeneralMessagePlugin implements Plugin<WorkflowPayload> {
   readonly shouldSpy: boolean = true;
   readonly shouldRest: boolean = false;
   readonly maxRetries = 10;
-  static readonly pluginName: string = "DummyPlugin";
+  static readonly pluginName: string = "SimpleGeneralMessagePlugin";
   readonly pluginName = SimpleGeneralMessagePlugin.pluginName;
 
   // config used by plugin
@@ -80,32 +79,8 @@ export class SimpleGeneralMessagePlugin implements Plugin<WorkflowPayload> {
   > {
     this.logger.debug(`VAA hash: ${vaa.hash.toString("base64")}`);
 
-    this.logger.debug(`VAA bytes:`);
-    this.logger.debug(`${vaa.bytes.toString('hex')}`);
-
-    // Filtering for the destination
-    let payload: string = vaa.payload.toString('hex');
-    let to = payload.substring(134, 198);
-    if (to !== "0000000000000000000000000000000000000000000000000000000000000815") return;
-
-    // Example of reading and updating a key exclusively
-    // This allows multiple listeners to run in separate processes safely
-    const count = await stagingArea.withKey(
-      ["counter"],
-      async ({ counter }) => {
-        this.logger.debug(`Original counter value ${counter}`);
-        counter = (counter ? counter : 0) + 1;
-        this.logger.debug(`Counter value after update ${counter}`);
-        return {
-          newKV: { counter },
-          val: counter,
-        };
-      },
-    );
-
     return {
       workflowData: {
-        count,
         vaa: vaa.bytes.toString("base64"),
       },
     };
