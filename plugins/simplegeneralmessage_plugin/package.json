@@ -1,7 +1,7 @@
 {
   "name": "@wormhole-foundation/dummy_plugin",
   "version": "0.0.1",
-  "description": "dummy plugin for plugin relayer",
+  "description": "Simple example plugin for plugin relayer",
   "main": "lib/plugin.js",
   "types": "lib/plugin.d.ts",
   "scripts": {

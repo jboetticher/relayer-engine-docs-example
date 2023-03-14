@@ -3,12 +3,24 @@
   "shouldRest": false,
   "spyServiceFilters": [
     {
+      "chainId": 2,
+      "emitterAddress": "0xfB7327Fe26aD52b693E38232E5D97F4892623075"
+    },
+    {
+      "chainId": 5,
+      "emitterAddress": "0xfB7327Fe26aD52b693E38232E5D97F4892623075"
+    },
+    {
+      "chainId": 6,
+      "emitterAddress": "0xfB7327Fe26aD52b693E38232E5D97F4892623075"
+    },
+    {
       "chainId": 10,
-      "emitterAddress": "0x599CEa2204B4FaECd584Ab1F2b6aCA137a0afbE8"
+      "emitterAddress": "0xCf11E10377cf4730F18A617146E7D2486F501e2A"
     },
     {
       "chainId": 16,
-      "emitterAddress": "0xbc976D4b9D57E57c3cA52e1Fd136C45FF7955A96"
+      "emitterAddress": "0x9C3F825FFC30d07aE2aD3D73200a71a3f2255759"
     }
   ]
 }
