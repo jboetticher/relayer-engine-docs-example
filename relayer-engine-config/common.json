@@ -1,0 +1,32 @@
+{
+  "logLevel": "debug",
+  "storeType": "Redis",
+  "readinessPort": 2000,
+  "apiPort": 3000,
+  "promPort": 3001,
+  "numGuardians": 1,
+  "redis": {
+    "port": 6379,
+    "host": "localhost"
+  },
+  "defaultWorkflowOptions": {
+    "maxRetries": 10
+  },
+  "wormholeRpc": "https://wormhole-v2-testnet-api.certus.one",
+  "supportedChains": [
+    {
+      "chainId": 10,
+      "chainName": "Fantom Testnet",
+      "nodeUrl": "https://fantom-testnet.blastapi.io/1c34598d-e68b-45ba-9a6f-62e6e4323691",
+      "bridgeAddress": "0x1BB3B4119b7BA9dfad76B0545fb3F531383c3bB7",
+      "tokenBridgeAddress": "0x599CEa2204B4FaECd584Ab1F2b6aCA137a0afbE8"
+    },
+    {
+      "chainId": 16,
+      "chainName": "Moonbase Alpha",
+      "nodeUrl": "https://rpc.api.moonbase.moonbeam.network",
+      "bridgeAddress": "0xa5B7D85a8f27dd7907dc8FdC21FA5657D5E2F901",
+      "tokenBridgeAddress": "0xbc976D4b9D57E57c3cA52e1Fd136C45FF7955A96"
+    }
+  ]
+}
